@@ -19,6 +19,6 @@ sh nk4conf.sh
 3.获取到IPv4则表示拦截成功，连接路由器的设备都能正常浏览网页。
 
 ###
-rp-pppoe-common_3.12-7_mipsel_24kc.ipk 和 rp-pppoe-server_3.12-7_mipsel_24kc.ipk这两个适用于18.06版本
+rp-pppoe-common_3.12-7_mipsel_24kc.ipk 和 rp-pppoe-server_3.12-7_mipsel_24kc.ipk这两个ipk安装包适用于Openwrt固件为18.06版本
 ## 特别鸣谢
 netkeeper的核心源码来自于miao1007的Openwrt-NetKeeper
