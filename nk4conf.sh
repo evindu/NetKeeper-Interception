@@ -1,5 +1,11 @@
 #!/bin/sh
 
+#Check PPPoE-Server
+if [ -z "$(opkg list-installed | grep "rp-pppoe-server")" ]
+then
+    echo "Please install PPPoE-Server first"
+    exit 0
+fi
 
 #change log location & enable debug & show password
 sed -i "s/\/dev\/null/\/tmp\/pppoe.log/" /etc/ppp/options
