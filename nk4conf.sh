@@ -12,7 +12,29 @@ sed -i "s/\/dev\/null/\/tmp\/pppoe.log/" /etc/ppp/options
 sed -i "s/#debug/debug/" /etc/ppp/options
 echo "show-password" >> /etc/ppp/options
 
-cp /usr/lib/pppd/2.4.8/rp-pppoe.so /etc/ppp/plugins/rp-pppoe.so
+function getdir(){
+    for element in `ls $1`
+    do  
+        dir_or_file=$1"/"$element
+        if [ -d $dir_or_file ]
+        then 
+            getdir $dir_or_file
+        else
+
+            if [ "$element" == "rp-pppoe.so" ];then
+                pppd_file_path="$dir_or_file"
+                cp $pppd_file_path /etc/ppp/plugins/rp-pppoe.so
+                break
+            else
+                echo "rp-pppoe.so not exit"
+                exit 0
+            fi
+        fi  
+    done
+}
+root_dir="/usr/lib/pppd"
+getdir $root_dir
+
 
 #set network
 uci delete network.wan6
