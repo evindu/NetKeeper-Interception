@@ -25,9 +25,6 @@ function getdir(){
                 pppd_file_path="$dir_or_file"
                 cp $pppd_file_path /etc/ppp/plugins/rp-pppoe.so
                 break
-            else
-                echo "rp-pppoe.so not exit"
-                exit 0
             fi
         fi  
     done
